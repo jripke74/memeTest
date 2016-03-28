@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PK8-r9-1Sq">
-                                <rect key="frame" x="0.0" y="60" width="600" height="496"/>
+                                <rect key="frame" x="0.0" y="104" width="600" height="452"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HkH-ei-x1z">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
@@ -42,7 +42,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zcY-Pc-0BR">
-                                <rect key="frame" x="20" y="82" width="560" height="30"/>
+                                <rect key="frame" x="20" y="126" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
@@ -64,6 +64,7 @@
                             <constraint firstAttribute="leadingMargin" secondItem="VqY-3o-Upn" secondAttribute="leading" id="vkv-hY-Ir4"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="gss-ct-V3F"/>
                     <connections>
                         <outlet property="bottomMemeTextField" destination="VqY-3o-Upn" id="IUk-dQ-iUT"/>
                         <outlet property="cameraButton" destination="R4J-nY-7so" id="vU8-sB-FYF"/>
@@ -73,7 +74,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="305" y="429"/>
+            <point key="canvasLocation" x="1117" y="429"/>
         </scene>
     </scenes>
 </document>
