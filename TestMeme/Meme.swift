@@ -12,4 +12,5 @@ struct Meme {
     var topMemeTextField: String
     var bottomMemeTextField: String
     var image: UIImage
+    let completedImage: UIImage
 }

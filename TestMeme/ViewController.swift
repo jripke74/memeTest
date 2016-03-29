@@ -16,7 +16,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var imagePickerView: UIImageView!
     
     let imagePicker = UIImagePickerController()
-    let keyboardControl = KeyboardControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +25,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        keyboardControl.subscribeToKeyboardNotifications()
+        subscribeToKeyboardNotifications()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -35,7 +34,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillAppear(animated)
-        keyboardControl.unsubscribeFromKeyboardNotifications()
+        unsubscribeFromKeyboardNotifications()
     }
 
     @IBAction func pickAnImageFromAlbum(sender: AnyObject) {
@@ -75,9 +74,48 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         topMemeTextField.delegate = self
     }
     
-    func save() -> Meme {
-        let meme = Meme(topMemeTextField: topMemeTextField.text!, bottomMemeTextField: bottomMemeTextField.text!, image: imagePickerView.image!)
-        return meme
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if bottomMemeTextField.isFirstResponder() {
+            view.frame.origin.y -= getKeyboardHeight(notification)
+        } else {
+            view.frame.origin.y = 0
+        }
+    }
+    
+    func getKeyboardHeight(notification: NSNotification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
+        return keyboardSize.CGRectValue().height
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if bottomMemeTextField.isFirstResponder() {
+            view.frame.origin.y += getKeyboardHeight(notification)
+        } else {
+            view.frame.origin.y = 0
+        }
+    }
+    
+    func subscribeToKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func unsubscribeFromKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+    }
+
+    
+    func save(memedImage: UIImage) {
+        guard let topTextField = topMemeTextField.text else { fatalError("Top text field is nil") }
+        guard let bottomTextField = bottomMemeTextField.text else { fatalError("Bottom text field is nil") }
+        let meme = Meme(topMemeTextField: topTextField, bottomMemeTextField: bottomTextField, image: memedImage, completedImage: memedImage)
     }
     
     func generateMemedImage() -> UIImage {
@@ -88,4 +126,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         UIGraphicsEndImageContext()
         return memedImage
     }
+    
+    func shareTapped(image: UIImage) {
+        let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: [])
+        activityViewController.completionWithItemsHandler = { activity, success, items, error in
+            if success {
+                self.save(image)
+            }
+        }
+        presentViewController(activityViewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func shareButton(sender: UIBarButtonItem) {
+        shareTapped(generateMemedImage())
+    }
+    
 }
