@@ -80,6 +80,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="bottomMemeTextField" destination="VqY-3o-Upn" id="IUk-dQ-iUT"/>
+                        <outlet property="cameraButton" destination="xS0-5L-5zh" id="ZJY-4z-1xP"/>
                         <outlet property="imagePickerView" destination="PK8-r9-1Sq" id="ydb-74-GB6"/>
                         <outlet property="topMemeTextField" destination="zcY-Pc-0BR" id="IZL-s2-goR"/>
                     </connections>
@@ -91,7 +92,6 @@
         <!--Navigation Controller-->
         <scene sceneID="42b-Cg-qpT">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rTF-tI-y0M" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sdP-HC-1NX" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fBO-qh-uIc">
@@ -103,6 +103,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="WbV-Q4-Szj"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rTF-tI-y0M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1117" y="429"/>
         </scene>

@@ -110,7 +110,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
     }
-
     
     func save(memedImage: UIImage) {
         guard let topTextField = topMemeTextField.text else { fatalError("Top text field is nil") }
