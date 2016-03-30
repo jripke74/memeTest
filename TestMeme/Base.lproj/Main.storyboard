@@ -3,7 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -20,11 +20,6 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PK8-r9-1Sq">
                                 <rect key="frame" x="0.0" y="64" width="600" height="492"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="PK8-r9-1Sq" secondAttribute="height" multiplier="50:41" id="GPh-3C-U3h"/>
-                                    <constraint firstAttribute="width" constant="600" id="llY-dw-4iY"/>
-                                    <constraint firstAttribute="height" constant="492" id="xkh-vc-3FX"/>
-                                </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zcY-Pc-0BR">
                                 <rect key="frame" x="20" y="85" width="560" height="30"/>
@@ -38,9 +33,6 @@
                             </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xUo-NX-HOx">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="600" id="NAo-zw-f45"/>
-                                </constraints>
                                 <items>
                                     <barButtonItem title="Album" id="Qrx-hk-blh">
                                         <connections>
@@ -57,18 +49,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="zcY-Pc-0BR" firstAttribute="leading" secondItem="PK8-r9-1Sq" secondAttribute="leading" constant="20" id="2zy-m6-gsJ"/>
-                            <constraint firstItem="PK8-r9-1Sq" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="5Jn-1T-06S"/>
-                            <constraint firstItem="VqY-3o-Upn" firstAttribute="trailing" secondItem="PK8-r9-1Sq" secondAttribute="trailing" constant="-20" id="69X-9u-V8n"/>
-                            <constraint firstItem="xUo-NX-HOx" firstAttribute="leading" secondItem="PK8-r9-1Sq" secondAttribute="trailing" constant="-600" id="GYj-qa-frP"/>
-                            <constraint firstAttribute="trailing" secondItem="PK8-r9-1Sq" secondAttribute="trailing" id="Gt5-ug-pzg"/>
-                            <constraint firstItem="xUo-NX-HOx" firstAttribute="bottom" secondItem="PK8-r9-1Sq" secondAttribute="bottom" constant="44" id="JR5-JC-eDF"/>
-                            <constraint firstItem="xUo-NX-HOx" firstAttribute="top" secondItem="PK8-r9-1Sq" secondAttribute="bottom" id="Js4-tV-DbB"/>
-                            <constraint firstItem="zcY-Pc-0BR" firstAttribute="trailing" secondItem="PK8-r9-1Sq" secondAttribute="trailing" constant="-20" id="dDw-bI-Olq"/>
-                            <constraint firstItem="zcY-Pc-0BR" firstAttribute="top" secondItem="PK8-r9-1Sq" secondAttribute="top" constant="21" id="ebf-l1-Y3c"/>
-                            <constraint firstItem="VqY-3o-Upn" firstAttribute="leading" secondItem="PK8-r9-1Sq" secondAttribute="leading" constant="20" id="jpW-rd-gLK"/>
-                            <constraint firstItem="VqY-3o-Upn" firstAttribute="bottom" secondItem="PK8-r9-1Sq" secondAttribute="bottom" constant="-22" id="oi1-VZ-qab"/>
-                            <constraint firstItem="PK8-r9-1Sq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="yCx-Jx-5dO"/>
+                            <constraint firstItem="zcY-Pc-0BR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="2Us-NC-d7F"/>
+                            <constraint firstItem="PK8-r9-1Sq" firstAttribute="trailing" secondItem="xUo-NX-HOx" secondAttribute="trailing" id="LXp-FP-LQ6"/>
+                            <constraint firstItem="VqY-3o-Upn" firstAttribute="centerX" secondItem="xUo-NX-HOx" secondAttribute="centerX" id="UhL-3P-WUl"/>
+                            <constraint firstItem="PK8-r9-1Sq" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Wwc-sb-3hv"/>
+                            <constraint firstItem="PK8-r9-1Sq" firstAttribute="leading" secondItem="xUo-NX-HOx" secondAttribute="leading" id="XPx-0C-CtH"/>
+                            <constraint firstItem="xUo-NX-HOx" firstAttribute="top" secondItem="PK8-r9-1Sq" secondAttribute="bottom" id="fnO-dq-SbZ"/>
+                            <constraint firstItem="zcY-Pc-0BR" firstAttribute="leading" secondItem="VqY-3o-Upn" secondAttribute="leading" id="i1G-bU-Oye"/>
+                            <constraint firstItem="xUo-NX-HOx" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="pbd-hc-4wb"/>
+                            <constraint firstItem="zcY-Pc-0BR" firstAttribute="trailing" secondItem="VqY-3o-Upn" secondAttribute="trailing" id="pxx-xA-1yC"/>
+                            <constraint firstItem="zcY-Pc-0BR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="21" id="sUj-ko-Y3C"/>
+                            <constraint firstItem="PK8-r9-1Sq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vqV-0z-ec4"/>
+                            <constraint firstAttribute="trailing" secondItem="PK8-r9-1Sq" secondAttribute="trailing" id="xD1-a8-bTp"/>
+                            <constraint firstItem="xUo-NX-HOx" firstAttribute="top" secondItem="VqY-3o-Upn" secondAttribute="bottom" constant="22" id="zfD-Th-7Bs"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="GAM-tp-epx">

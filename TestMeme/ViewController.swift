@@ -16,6 +16,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var imagePickerView: UIImageView!
     
     let imagePicker = UIImagePickerController()
+    var imageForMeme: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,10 +53,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            imagePickerView.image = image
-            dismissViewControllerAnimated(true, completion: nil)
-        }
+        imageForMeme = info[UIImagePickerControllerOriginalImage] as? UIImage
+        imagePickerView.image = imageForMeme
+        dismissViewControllerAnimated(true, completion: nil)
+//        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+//            imagePickerView.image = image
+//            dismissViewControllerAnimated(true, completion: nil)
+//        }
     }
     
     func textFields() {
@@ -126,14 +130,31 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return memedImage
     }
     
-    func shareTapped(image: UIImage) {
-        let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: [])
-        activityViewController.completionWithItemsHandler = { activity, success, items, error in
-            if success {
-                self.save(image)
+    func shareTapped(image: UIImage?) {
+        if imageForMeme == nil {
+            let noPictureAlert = UIAlertController(title: "No Image Sellected", message: "Would you please pick a picture!!!", preferredStyle: .ActionSheet)
+            let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+            noPictureAlert.addAction(cancelAction)
+            let takePictureAction: UIAlertAction = UIAlertAction(title: "Take picture", style: .Default) { action -> Void in
+                self.imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+                self.presentViewController(self.imagePicker, animated: true, completion: nil)
             }
+            noPictureAlert.addAction(takePictureAction)
+            let choosePictureAction: UIAlertAction = UIAlertAction(title: "Choose From Camera Roll", style: .Default) { action -> Void in
+                self.imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+                self.presentViewController(self.imagePicker, animated: true, completion: nil)
+            }
+            noPictureAlert.addAction(choosePictureAction)
+            presentViewController(noPictureAlert, animated: true, completion: nil)
+        } else {
+            let activityViewController = UIActivityViewController(activityItems: [image!], applicationActivities: [])
+            activityViewController.completionWithItemsHandler = { activity, success, items, error in
+                if success {
+                    self.save(image!)
+                }
+            }
+            presentViewController(activityViewController, animated: true, completion: nil)
         }
-        presentViewController(activityViewController, animated: true, completion: nil)
     }
     
     @IBAction func shareButton(sender: UIBarButtonItem) {
