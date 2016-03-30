@@ -14,6 +14,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var bottomMemeTextField: UITextField!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var imagePickerView: UIImageView!
+    @IBOutlet weak var bottomToolBar: UIToolbar!
+    
     
     let imagePicker = UIImagePickerController()
     var imageForMeme: UIImage?
@@ -123,9 +125,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func generateMemedImage() -> UIImage {
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        print(UIGraphicsBeginImageContext(self.view.frame.size))
-        view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        bottomToolBar.hidden = true
+        UIGraphicsBeginImageContext(view.frame.size)
+        print(UIGraphicsBeginImageContext(view.frame.size))
+        view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
         let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return memedImage

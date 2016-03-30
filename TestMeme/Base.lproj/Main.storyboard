@@ -81,6 +81,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="bottomMemeTextField" destination="DT6-9Y-GPB" id="JDV-y4-Rg9"/>
+                        <outlet property="bottomToolBar" destination="xUo-NX-HOx" id="M4D-sY-hYs"/>
                         <outlet property="cameraButton" destination="xS0-5L-5zh" id="ZJY-4z-1xP"/>
                         <outlet property="imagePickerView" destination="PK8-r9-1Sq" id="ydb-74-GB6"/>
                         <outlet property="topMemeTextField" destination="8eD-Km-H3l" id="Q8J-eU-wnE"/>
