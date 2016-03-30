@@ -56,15 +56,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imageForMeme = info[UIImagePickerControllerOriginalImage] as? UIImage
         imagePickerView.image = imageForMeme
         dismissViewControllerAnimated(true, completion: nil)
-//        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-//            imagePickerView.image = image
-//            dismissViewControllerAnimated(true, completion: nil)
-//        }
     }
     
     func textFields() {
-        if let textFieldFont = UIFont(name: "HelveticaNeue-CondensedBlack", size: 34) {
-            let memeTextFieldAttributes = [NSStrokeColorAttributeName: UIColor.blackColor(), NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: textFieldFont, NSStrokeWidthAttributeName: 2.0]
+        if let textFieldFont = UIFont(name: "HelveticaNeue-CondensedBlack", size: 36) {
+            let memeTextFieldAttributes = [NSFontAttributeName: textFieldFont]
             topMemeTextField.defaultTextAttributes = memeTextFieldAttributes
             bottomMemeTextField.defaultTextAttributes = memeTextFieldAttributes
         } else {
@@ -74,6 +70,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         bottomMemeTextField.text = "BOTTOM"
         topMemeTextField.textAlignment = .Center
         bottomMemeTextField.textAlignment = .Center
+        topMemeTextField.backgroundColor = UIColor.clearColor()
+        topMemeTextField.textColor = UIColor.whiteColor()
+        bottomMemeTextField.backgroundColor = UIColor.clearColor()
+        bottomMemeTextField.textColor = UIColor.whiteColor()
+        topMemeTextField.adjustsFontSizeToFitWidth = true
         bottomMemeTextField.delegate = self
         topMemeTextField.delegate = self
     }
