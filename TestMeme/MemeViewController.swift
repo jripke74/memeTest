@@ -18,6 +18,7 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     let imagePicker = UIImagePickerController()
     var imageForMeme: UIImage?
+    var meme: Meme!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +57,7 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         imageForMeme = info[UIImagePickerControllerOriginalImage] as? UIImage
         imagePickerView.image = imageForMeme
+        imagePickerView.contentMode = UIViewContentMode.ScaleAspectFit
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -122,6 +124,7 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         guard let bottomTextField = bottomMemeTextField.text else { fatalError("Bottom text field is nil") }
         let meme = Meme(topMemeTextField: topTextField, bottomMemeTextField: bottomTextField, image: memedImage, completedImage: memedImage)
         (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
+        print((UIApplication.sharedApplication().delegate as! AppDelegate).memes)
     }
     
     func generateMemedImage() -> UIImage {
@@ -139,11 +142,13 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             let noPictureAlert = UIAlertController(title: "No Image Sellected", message: "Would you please pick a picture!!!", preferredStyle: .ActionSheet)
             let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
             noPictureAlert.addAction(cancelAction)
-            let takePictureAction: UIAlertAction = UIAlertAction(title: "Take picture", style: .Default) { action -> Void in
-                self.imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-                self.presentViewController(self.imagePicker, animated: true, completion: nil)
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+                let takePictureAction: UIAlertAction = UIAlertAction(title: "Take picture", style: .Default) { action -> Void in
+                    self.imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+                    self.presentViewController(self.imagePicker, animated: true, completion: nil)
+                }
+                noPictureAlert.addAction(takePictureAction)
             }
-            noPictureAlert.addAction(takePictureAction)
             let choosePictureAction: UIAlertAction = UIAlertAction(title: "Choose From Camera Roll", style: .Default) { action -> Void in
                 self.imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
                 self.presentViewController(self.imagePicker, animated: true, completion: nil)

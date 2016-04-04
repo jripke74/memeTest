@@ -8,9 +8,7 @@
 
 import UIKit
 
-class MemeCollectionViewController: UICollectionViewController {
-    
-    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+class MemeTableViewController: UITableViewController {
     
     var memes: [Meme]!
     
