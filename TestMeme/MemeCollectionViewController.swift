@@ -10,7 +10,7 @@ import UIKit
 
 class MemeCollectionViewController: UICollectionViewController {
     
-    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    //@IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
     var memes = (UIApplication.sharedApplication().delegate as! AppDelegate).memes
     
@@ -18,6 +18,10 @@ class MemeCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         //let applicationDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
         //memes = applicationDelegate.memes
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        collectionView?.reloadData()
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -29,8 +33,9 @@ class MemeCollectionViewController: UICollectionViewController {
         let meme = memes[indexPath.item]
         cell.topMemeLabel.text = meme.topMemeTextField
         cell.bottomMemeLabel.text = meme.bottomMemeTextField
-        let imageView = UIImageView(image: meme.image)
-        cell.backgroundView = imageView
+//        let imageView = UIImageView(image: meme.image)
+//        cell.backgroundView = imageView
+        cell.memeImage.image = meme.image
         return cell
     }
     
