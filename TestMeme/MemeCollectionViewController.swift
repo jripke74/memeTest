@@ -9,15 +9,9 @@
 import UIKit
 
 class MemeCollectionViewController: UICollectionViewController {
-    
-    //@IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
-    
-    var memes = (UIApplication.sharedApplication().delegate as! AppDelegate).memes
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        //let applicationDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
-        //memes = applicationDelegate.memes
+   
+    var memes: [Meme] {
+        return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -33,14 +27,13 @@ class MemeCollectionViewController: UICollectionViewController {
         let meme = memes[indexPath.item]
         cell.topMemeLabel.text = meme.topMemeTextField
         cell.bottomMemeLabel.text = meme.bottomMemeTextField
-//        let imageView = UIImageView(image: meme.image)
-//        cell.backgroundView = imageView
         cell.memeImage.image = meme.image
         return cell
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let detailController = storyboard!.instantiateViewControllerWithIdentifier("MemeViewController") as! MemeViewController
+        let detailController = storyboard!.instantiateViewControllerWithIdentifier("MemeDetail") as! MemeDetailViewController
         detailController.meme = memes[indexPath.row]
+        navigationController?.pushViewController(detailController, animated: true)
     }
 }
