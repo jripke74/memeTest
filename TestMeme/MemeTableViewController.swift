@@ -16,8 +16,6 @@ class MemeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let applicationDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
-//        memes = applicationDelegate.memes
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -31,7 +29,6 @@ class MemeTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("tableCell", forIndexPath: indexPath)
         let meme = memes[indexPath.item]
-        cell.textLabel?.text = meme.topMemeTextField
         cell.imageView?.image = meme.image
         return cell
     }

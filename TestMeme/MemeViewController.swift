@@ -124,20 +124,20 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         guard let bottomTextField = bottomMemeTextField.text else { fatalError("Bottom text field is nil") }
         let meme = Meme(topMemeTextField: topTextField, bottomMemeTextField: bottomTextField, image: memedImage, completedImage: memedImage)
         (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
-        print((UIApplication.sharedApplication().delegate as! AppDelegate).memes)
     }
     
     func generateMemedImage() -> UIImage {
         bottomToolBar.hidden = true
         UIGraphicsBeginImageContext(view.frame.size)
-        print(UIGraphicsBeginImageContext(view.frame.size))
         view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
         let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
+        bottomToolBar.hidden = false
         return memedImage
     }
     
     func shareTapped(image: UIImage?) {
+        bottomToolBar.hidden = true
         if imageForMeme == nil {
             let noPictureAlert = UIAlertController(title: "No Image Sellected", message: "Would you please pick a picture!!!", preferredStyle: .ActionSheet)
             let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
@@ -164,6 +164,15 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             }
             presentViewController(activityViewController, animated: true, completion: nil)
         }
+    }
+    
+    func reset() {
+        bottomToolBar.hidden = false
+        imagePickerView.image = nil
+    }
+    
+    @IBAction func resetButton(sender: UIBarButtonItem) {
+        reset()
     }
     
     @IBAction func shareButton(sender: UIBarButtonItem) {
