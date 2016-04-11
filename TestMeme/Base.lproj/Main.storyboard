@@ -35,6 +35,11 @@
                                             <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="xXT-8a-KO2"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="Completed Memes" id="WPS-Wm-xHr">
+                                        <connections>
+                                            <segue destination="PFG-sC-1Hd" kind="show" id="YDd-4D-RpW"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8eD-Km-H3l">
@@ -123,7 +128,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1972" y="82"/>
+            <point key="canvasLocation" x="1988" y="182"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="jIe-iq-fSm">
@@ -243,35 +248,6 @@
             </objects>
             <point key="canvasLocation" x="1266" y="-143"/>
         </scene>
-        <!--Meme Table View Controller-->
-        <scene sceneID="Sc8-Qc-MWQ">
-            <objects>
-                <tableViewController id="LAN-U6-4sb" customClass="MemeTableViewController" customModule="TestMeme" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="wvG-8u-eha">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell" id="ilK-aG-fZj">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ilK-aG-fZj" id="GxE-r2-4yF">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="LAN-U6-4sb" id="8g7-LA-NNc"/>
-                            <outlet property="delegate" destination="LAN-U6-4sb" id="Fvi-bC-pgp"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="j1Z-9J-bch"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sD6-IX-PF1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1265" y="523"/>
-        </scene>
         <!--List of Memes-->
         <scene sceneID="Aw5-5D-Q8g">
             <objects>
@@ -284,12 +260,68 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="LAN-U6-4sb" kind="relationship" relationship="rootViewController" id="N8S-ml-O5L"/>
+                        <segue destination="fzQ-m3-a7x" kind="relationship" relationship="rootViewController" id="hbK-zC-dhp"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tau-KM-mfu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="605" y="527"/>
+        </scene>
+        <!--Memes-->
+        <scene sceneID="5rw-7W-moP">
+            <objects>
+                <viewController id="fzQ-m3-a7x" customClass="MemeTableViewController" customModule="TestMeme" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Lvt-cO-INT"/>
+                        <viewControllerLayoutGuide type="bottom" id="aQQ-Um-dsK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4Zi-5H-KRf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h2n-bv-dds">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MemeCell" textLabel="8VP-pg-cSQ" style="IBUITableViewCellStyleDefault" id="tSA-6b-LlX">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tSA-6b-LlX" id="rs7-Xt-TJU">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8VP-pg-cSQ">
+                                                    <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="h2n-bv-dds" secondAttribute="trailing" id="Mgb-SE-99m"/>
+                            <constraint firstItem="h2n-bv-dds" firstAttribute="leading" secondItem="4Zi-5H-KRf" secondAttribute="leading" id="WRi-9z-aDS"/>
+                            <constraint firstItem="h2n-bv-dds" firstAttribute="top" secondItem="Lvt-cO-INT" secondAttribute="bottom" id="jOz-Td-Jxe"/>
+                            <constraint firstItem="h2n-bv-dds" firstAttribute="bottom" secondItem="aQQ-Um-dsK" secondAttribute="top" id="m6K-FC-pOd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Memes" id="bgW-Sk-3bD">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Pz5-hL-ESu">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="presentation" id="vgh-BY-R5d"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nfj-tj-kx3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1266" y="527"/>
         </scene>
         <!--Meme Detail View Controller-->
         <scene sceneID="Ej8-58-us4">
@@ -321,7 +353,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b1A-ls-4jP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1918" y="854"/>
+            <point key="canvasLocation" x="1950" y="913"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="vgh-BY-R5d"/>
+    </inferredMetricsTieBreakers>
 </document>

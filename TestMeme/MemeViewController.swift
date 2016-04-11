@@ -137,7 +137,6 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     func shareTapped(image: UIImage?) {
-        bottomToolBar.hidden = true
         if imageForMeme == nil {
             let noPictureAlert = UIAlertController(title: "No Image Sellected", message: "Would you please pick a picture!!!", preferredStyle: .ActionSheet)
             let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
