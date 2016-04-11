@@ -124,6 +124,7 @@
                         <outlet property="cameraButton" destination="xS0-5L-5zh" id="ZJY-4z-1xP"/>
                         <outlet property="imagePickerView" destination="PK8-r9-1Sq" id="ydb-74-GB6"/>
                         <outlet property="topMemeTextField" destination="8eD-Km-H3l" id="Q8J-eU-wnE"/>
+                        <outlet property="topNavigationBar" destination="dxn-mT-O14" id="ft5-sO-tyC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -318,6 +319,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="memeTableView" destination="h2n-bv-dds" id="5fU-CS-DSS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nfj-tj-kx3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

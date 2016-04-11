@@ -8,28 +8,36 @@
 
 import UIKit
 
-class MemeTableViewController: UITableViewController {
+class MemeTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    @IBOutlet weak var memeTableView: UITableView!
     
     var memes: [Meme] {
         return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
     }
     
-    override func viewDidAppear(animated: Bool) {
-        tableView?.reloadData()
+    override func viewDidLoad() {
+        memeTableView.delegate = self
+        memeTableView.dataSource = self
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func viewDidAppear(animated: Bool) {
+        memeTableView?.reloadData()
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return memes.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MemeCell", forIndexPath: indexPath)
         let meme = memes[indexPath.row]
         cell.imageView?.image = meme.image
+        cell.textLabel?.text = meme.topMemeTextField
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let detailController = storyboard!.instantiateViewControllerWithIdentifier("MemeDetail") as! MemeDetailViewController
         detailController.meme = memes[indexPath.row]
         navigationController?.pushViewController(detailController, animated: true)
