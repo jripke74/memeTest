@@ -59,7 +59,7 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Cancel" id="zM8-nv-AgO">
                                             <connections>
-                                                <segue destination="PFG-sC-1Hd" kind="show" id="nT4-qP-shD"/>
+                                                <action selector="cancel:" destination="BYZ-38-t0r" id="uxR-OW-Vj9"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -362,6 +362,5 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="vgh-BY-R5d"/>
-        <segue reference="nT4-qP-shD"/>
     </inferredMetricsTieBreakers>
 </document>

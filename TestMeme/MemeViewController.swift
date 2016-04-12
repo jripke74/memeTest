@@ -181,4 +181,7 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         shareTapped(generateMemedImage())
     }
     
+    @IBAction func cancel(sender: UIBarButtonItem) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 }
