@@ -73,38 +73,23 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="DT6-9Y-GPB" firstAttribute="centerX" secondItem="xUo-NX-HOx" secondAttribute="centerX" id="0LP-gC-36R"/>
                             <constraint firstItem="dxn-mT-O14" firstAttribute="leading" secondItem="PK8-r9-1Sq" secondAttribute="leading" id="2i6-t9-LeN"/>
                             <constraint firstItem="PK8-r9-1Sq" firstAttribute="trailing" secondItem="xUo-NX-HOx" secondAttribute="trailing" id="52f-xr-0X5"/>
                             <constraint firstItem="PK8-r9-1Sq" firstAttribute="bottom" secondItem="xUo-NX-HOx" secondAttribute="top" id="7SP-Vn-QhD"/>
                             <constraint firstItem="8eD-Km-H3l" firstAttribute="leading" secondItem="PK8-r9-1Sq" secondAttribute="leading" constant="20" id="8e0-Hh-ol1"/>
-                            <constraint firstItem="PK8-r9-1Sq" firstAttribute="bottom" secondItem="xUo-NX-HOx" secondAttribute="top" id="B39-Qd-d3V"/>
-                            <constraint firstItem="xUo-NX-HOx" firstAttribute="top" secondItem="DT6-9Y-GPB" secondAttribute="bottom" constant="17" id="EJ3-oO-ulm"/>
                             <constraint firstItem="PK8-r9-1Sq" firstAttribute="leading" secondItem="xUo-NX-HOx" secondAttribute="leading" id="GbV-o5-wst"/>
-                            <constraint firstItem="xUo-NX-HOx" firstAttribute="top" secondItem="PK8-r9-1Sq" secondAttribute="bottom" id="Jq9-ag-rsv"/>
                             <constraint firstItem="8eD-Km-H3l" firstAttribute="trailing" secondItem="PK8-r9-1Sq" secondAttribute="trailing" constant="-20" id="Nul-6E-f6M"/>
+                            <constraint firstItem="xUo-NX-HOx" firstAttribute="top" secondItem="DT6-9Y-GPB" secondAttribute="bottom" constant="17" id="PBB-V0-8rU"/>
                             <constraint firstItem="DT6-9Y-GPB" firstAttribute="leading" secondItem="PK8-r9-1Sq" secondAttribute="leading" constant="20" id="WAp-b0-QXV"/>
                             <constraint firstItem="dxn-mT-O14" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="aiR-6g-j5b"/>
-                            <constraint firstItem="DT6-9Y-GPB" firstAttribute="bottom" secondItem="PK8-r9-1Sq" secondAttribute="bottom" constant="-17" id="ak2-y8-dYR"/>
                             <constraint firstItem="PK8-r9-1Sq" firstAttribute="top" secondItem="dxn-mT-O14" secondAttribute="bottom" id="fsY-GM-VCY"/>
                             <constraint firstItem="dxn-mT-O14" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="kbh-Hq-0Uh"/>
                             <constraint firstItem="dxn-mT-O14" firstAttribute="trailing" secondItem="PK8-r9-1Sq" secondAttribute="trailing" id="kcZ-cR-hVH"/>
-                            <constraint firstItem="DT6-9Y-GPB" firstAttribute="bottom" secondItem="PK8-r9-1Sq" secondAttribute="bottom" id="mND-tH-RcO"/>
                             <constraint firstItem="xUo-NX-HOx" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="qLC-Wb-amk"/>
-                            <constraint firstItem="xUo-NX-HOx" firstAttribute="top" secondItem="DT6-9Y-GPB" secondAttribute="bottom" constant="17" id="u9k-aW-Ppu"/>
                             <constraint firstItem="8eD-Km-H3l" firstAttribute="top" secondItem="PK8-r9-1Sq" secondAttribute="top" constant="21" id="uMY-Va-4GC"/>
                             <constraint firstItem="DT6-9Y-GPB" firstAttribute="trailing" secondItem="PK8-r9-1Sq" secondAttribute="trailing" constant="-20" id="uQD-h4-WQ0"/>
                             <constraint firstAttribute="trailing" secondItem="dxn-mT-O14" secondAttribute="trailing" id="x9D-YB-ih9"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="B39-Qd-d3V"/>
-                                <exclude reference="mND-tH-RcO"/>
-                                <exclude reference="EJ3-oO-ulm"/>
-                                <exclude reference="Jq9-ag-rsv"/>
-                                <exclude reference="u9k-aW-Ppu"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="GAM-tp-epx">
                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="0Dn-Io-Jzo">
@@ -196,7 +181,7 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1VK-HP-GkG">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1VK-HP-GkG">
                                             <rect key="frame" x="8" y="31" width="205" height="157"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9z0-PI-Hz8">
@@ -361,6 +346,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vgh-BY-R5d"/>
+        <segue reference="qw0-fj-2M2"/>
     </inferredMetricsTieBreakers>
 </document>
