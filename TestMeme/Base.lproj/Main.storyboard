@@ -46,7 +46,7 @@
                                 <rect key="frame" x="20" y="85" width="560" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dxn-mT-O14">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
@@ -59,7 +59,7 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Cancel" id="zM8-nv-AgO">
                                             <connections>
-                                                <action selector="resetButton:" destination="BYZ-38-t0r" id="Slq-B9-IME"/>
+                                                <segue destination="y8Z-eu-zJv" kind="show" id="map-zI-iwQ"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -68,7 +68,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DT6-9Y-GPB">
                                 <rect key="frame" x="20" y="509" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -339,7 +339,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X1s-7c-xdF">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X1s-7c-xdF">
                                 <rect key="frame" x="0.0" y="37" width="600" height="563"/>
                             </imageView>
                         </subviews>
@@ -362,5 +362,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="vgh-BY-R5d"/>
+        <segue reference="map-zI-iwQ"/>
     </inferredMetricsTieBreakers>
 </document>
