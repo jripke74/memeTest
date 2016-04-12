@@ -63,8 +63,8 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     func textFields() {
-        if let textFieldFont = UIFont(name: "HelveticaNeue-CondensedBlack", size: 36) {
-            let memeTextFieldAttributes = [NSFontAttributeName: textFieldFont]
+        if let textFieldFont = UIFont(name: "HelveticaNeue-CondensedBlack", size: 40) {
+            let memeTextFieldAttributes = [NSStrokeColorAttributeName: UIColor.blackColor(), NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: textFieldFont, NSStrokeWidthAttributeName: -4.0]
             topMemeTextField.defaultTextAttributes = memeTextFieldAttributes
             bottomMemeTextField.defaultTextAttributes = memeTextFieldAttributes
         } else {
@@ -74,11 +74,10 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         bottomMemeTextField.text = "BOTTOM"
         topMemeTextField.textAlignment = .Center
         bottomMemeTextField.textAlignment = .Center
+        topMemeTextField.clearsOnBeginEditing = true
+        bottomMemeTextField.clearsOnBeginEditing = true
         topMemeTextField.backgroundColor = UIColor.clearColor()
-        topMemeTextField.textColor = UIColor.whiteColor()
         bottomMemeTextField.backgroundColor = UIColor.clearColor()
-        bottomMemeTextField.textColor = UIColor.whiteColor()
-        topMemeTextField.adjustsFontSizeToFitWidth = true
         bottomMemeTextField.delegate = self
         topMemeTextField.delegate = self
     }
