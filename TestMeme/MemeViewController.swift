@@ -24,7 +24,8 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
-        textFields()
+        setupTextField(topMemeTextField, defaultText: "TOP")
+        setupTextField(bottomMemeTextField, defaultText: "BOTTOM")
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -62,24 +63,18 @@ class MemeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func textFields() {
+    func setupTextField(textField: UITextField, defaultText: String) {
         if let textFieldFont = UIFont(name: "HelveticaNeue-CondensedBlack", size: 40) {
             let memeTextFieldAttributes = [NSStrokeColorAttributeName: UIColor.blackColor(), NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: textFieldFont, NSStrokeWidthAttributeName: -4.0]
-            topMemeTextField.defaultTextAttributes = memeTextFieldAttributes
-            bottomMemeTextField.defaultTextAttributes = memeTextFieldAttributes
+            textField.defaultTextAttributes = memeTextFieldAttributes
         } else {
             print("Font issue")
         }
-        topMemeTextField.text = "TOP"
-        bottomMemeTextField.text = "BOTTOM"
-        topMemeTextField.textAlignment = .Center
-        bottomMemeTextField.textAlignment = .Center
-        topMemeTextField.clearsOnBeginEditing = true
-        bottomMemeTextField.clearsOnBeginEditing = true
-        topMemeTextField.backgroundColor = UIColor.clearColor()
-        bottomMemeTextField.backgroundColor = UIColor.clearColor()
-        bottomMemeTextField.delegate = self
-        topMemeTextField.delegate = self
+        textField.text = defaultText
+        textField.textAlignment = .Center
+        textField.clearsOnBeginEditing = true
+        textField.backgroundColor = UIColor.clearColor()
+        textField.delegate = self
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
